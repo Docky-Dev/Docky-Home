@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docky</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #f8fafc;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    }
+
+    .glass-card {
+      background: rgba(15, 15, 17, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.15);
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    .glow-effect {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow-effect::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(99, 102, 241, 0.1),
+        transparent
+      );
+      transition: all 0.6s ease;
+    }
+
+    .glow-effect:hover::before {
+      left: 100%;
+    }
+
+    .animated-border {
+      position: relative;
+    }
+
+    .animated-border::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      transition: width 0.4s ease;
+    }
+
+    .animated-border:hover::after {
+      width: 100%;
+    }
+
+    .bg-grid {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .scale-in {
+      animation: scaleIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-grid">
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-lg z-50 border-b border-gray-900">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="#" class="text-2xl font-bold gradient-text animate__animated animate__fadeIn">Docky</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#projects" class="text-gray-300 hover:text-white animated-border py-2">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-indigo-900/30 blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-indigo-800/20 blur-3xl animate-pulse delay-500"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-4xl" data-aos="fade-up">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text animate__animated animate__fadeInDown">Docky Projects</h1>
+      <p class="text-xl text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed">
+        Discover all <span class="font-semibold text-white">Docky</span> projects.
+      </p>
+      <div class="mt-10 flex justify-center gap-4 animate-on-scroll">
+        <a href="#projects" class="px-8 py-3 rounded-full gradient-bg text-white font-medium hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300 transform hover:scale-105">View Projects</a>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-on-scroll">
+      <div class="animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="px-6 py-24 relative" id="projects">
+    <div class="max-w-7xl mx-auto relative">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-center gradient-text animate-on-scroll">Docky Projects</h2>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto text-center mb-16 animate-on-scroll">
+        Complete list of all available projects.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card - DockyHost -->
+        <div class="glass-card p-6 glow-effect animate-on-scroll" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold mb-2 text-white">DockyHost</h3>
+          <p class="text-gray-400 mb-4">Free hosting service by Docky with a simple and intuitive management interface.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Hosting</span>
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Free</span>
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Jexactyl</span>
+          </div>
+          <a href="http://91.169.161.97:64000/" target="_blank" 
+             class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition">
+            Access DockyHost
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Project Card - DockyMusic -->
+        <div class="glass-card p-6 glow-effect animate-on-scroll" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="text-xl font-semibold mb-2 text-white">DockyMusic</h3>
+          <p class="text-gray-400 mb-4">Music platform with a modern interface and advanced features.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Music</span>
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Streaming</span>
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Modern</span>
+          </div>
+          <a href="https://dockymusic.vercel.app/" target="_blank" 
+             class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition">
+            Access DockyMusic
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Project Card - DockyCount -->
+        <div class="glass-card p-6 glow-effect animate-on-scroll" data-aos="fade-up" data-aos-delay="600">
+          <h3 class="text-xl font-semibold mb-2 text-white">DockyCount</h3>
+          <p class="text-gray-400 mb-4">Real-time counter with elegant interface and dynamic data.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Counter</span>
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Real-time</span>
+            <span class="text-xs px-3 py-1 bg-gray-900/50 rounded-full text-gray-300">Statistics</span>
+          </div>
+          <a href="https://dockycount.vercel.app/" target="_blank" 
+             class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition">
+            Access DockyCount
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 py-12 border-t border-gray-900 bg-black/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0 animate-on-scroll">
+          <a href="#" class="text-2xl font-bold gradient-text">Docky</a>
+          <p class="text-gray-500 mt-2">A collection of innovative and useful projects.</p>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center animate-on-scroll">
+        <p class="text-gray-500 text-sm mb-4 md:mb-0">
+          © 2023 Docky. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-out-quart'
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        if(this.getAttribute('href') === '#') return;
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Intersection Observer for scroll animations
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scale-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animateElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
